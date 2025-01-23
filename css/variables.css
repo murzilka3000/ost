@@ -1,0 +1,15 @@
+:root {
+    --font-family: "Exo 2", sans-serif;
+    --second-family: "Inter", sans-serif;
+    --third-family: "SF Pro Display", sans-serif;
+    --font3: "Manrope", sans-serif;
+    --font4: "SF Pro Text", sans-serif;
+    --color-1: #00e1d6;
+    --background: #1c1c1c;
+    --grey: #262626;
+    --white: #fff;
+    --background-menu: #262626;
+    --color-text2: rgba(245, 245, 245, 0.6);
+    --color-2: #28aee2;
+    --color-3: #507bed;
+  }
