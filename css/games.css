@@ -1,0 +1,30 @@
+.games-img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+
+.game-card {
+    min-height: 310px;
+}
+
+.games-rat {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.games-rat div {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.game-card .back {
+    background: #2626265e;
+}
+
+.game-card:hover .front {
+    opacity: 0.1;
+    transform: translateY(-10px);
+}

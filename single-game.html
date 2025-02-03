@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="/css/all.css">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/footer.css">
-    <link rel="stylesheet" href="/css/providers.css">
-    <link rel="stylesheet" href="/css/games.css">
+    <link rel="stylesheet" href="/css/single-game.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
 <body>
     <header>
@@ -45,411 +46,242 @@
         </div>
     </header>
     <main class="main">
-        <div class="sort-cont">
-            <div class="wrapper">
-                <div class="dropdown">
-                    <button class="dropdown-button">Sort Games: <span>A-Z</span> <img src="/images/sort-img.svg" alt=""></button>
-                    <ul class="dropdown-menu">
-                      <li data-value="a-z">A-Z</li>
-                      <li data-value="z-a">Z-A</li>
-                      <li data-value="newest">Newest</li>
-                      <li data-value="oldest">Oldest</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
         <div class="wrapper">
-            <div class="main-grid">
+            <div class="main-grid main-grid-game">
                 <div>
-                    <div class="prov-grid">
-
-
-                        <div class="game-card">
-                            <div class="front">
-                                <img style="width: 100%;" src="/images/games.png" alt="" class="games-img">
-                                <p class="provider-name">Provider name</p>
-                                <div class="games-rat">
-                                    <div>
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star3.svg" alt="">
-                                    </div>
-                                    <p>4.5</p>
-                                </div>
-                            </div>
-                            <div class="back">
-                                <p class="provider-name">Provider name</p>
-                                <p class="description">
-                                This game is played on the special board with figures of two colors
-                                </p>
-                                <div class="tags">
-                                <span>poker</span>
-                                <span>slot</span>
-                                <span>fish</span>
-                                <span>poker</span>
-                                <span>poker</span>
-                                </div>
-                                <div class="arrow2">
-                                    <img src="/images/arr-card.svg" alt="">
-                                </div>
+                    <div class="game-hero">
+                        <h2>Shaman’s slots</h2>
+                        <p class="desc">
+                            A fiery young man clashes with an 
+                            unflinching forest officer in a 
+                            south Indian village where 
+                            spirituality, fate and folklore 
+                            rule the lands.
+                        </p>
+                        <div class="game-hero-buttons-cont">
+                            <button>
+                                <img src="/images/play.svg" alt="">
+                                <span>Play Demo</span>
+                            </button>
+                            <div>
+                                <button>
+                                    <img src="/images/like.svg" alt="">
+                                </button>
+                                <button>
+                                    <img src="/images/diz.svg" alt="">
+                                </button>
+                                <button>
+                                    <img src="/images/del.svg" alt="">
+                                </button>
                             </div>
                         </div>
-                        <div class="game-card">
-                            <div class="front">
-                                <img style="width: 100%;" src="/images/games.png" alt="" class="games-img">
-                                <p class="provider-name">Provider name</p>
-                                <div class="games-rat">
-                                    <div>
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star3.svg" alt="">
+                        <div class="game-rat">
+                            <div>
+                                <img src="/images/star2.svg" alt="">
+                                <img src="/images/star2.svg" alt="">
+                                <img src="/images/star2.svg" alt="">
+                                <img src="/images/star2.svg" alt="">
+                                <img src="/images/star3.svg" alt="">
+                            </div>
+                            <p>4.5</p>
+                        </div>
+                    </div>
+                    <div class="single-video">
+                        <h6>Demo frame</h6>
+                        <video controls>
+                            <source src="your-video.mp4" type="video/mp4">
+                            Ваш браузер не поддерживает видео.
+                        </video>
+                    </div>
+                    <div class="game-container">
+                        <div class="game-content">
+                            <h6 class="game-content-title">
+                                Game rules
+                            </h6>
+                            <div class="game-content-desc-cont">
+                                <p class="game-content-desc">
+                                    Escape the MonasteryEscaping such a 
+                                    well-guarded monastery is no easy 
+                                    task, but Agnes, Leonora, Eduardo, 
+                                    Amelia, and Alfredo are determined 
+                                    to see it through. Alternate control 
+                                    of all five characters and use their 
+                                    unique upgradable skills to cast 
+                                    spells, assassinate targets, 
+                                    distract enemies, stun evil spirits, 
+                                    explore hard-to-reach areas, and more.
+                                </p>
+                            </div>
+                            <div class="swiper-container-game">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div>
+                                            <img src="/images/slide.png" alt="">
+                                        </div>
+                                        <div>
+                                            <p>5 - $40.00</p>
+                                            <p>5 - $40.00</p>
+                                            <p>5 - $40.00</p>
+                                        </div>
                                     </div>
-                                    <p>4.5</p>
+                                    <div class="swiper-slide">
+                                        <div>
+                                            <img src="/images/slide.png" alt="">
+                                        </div>
+                                        <div>
+                                            <p>5 - $40.00</p>
+                                            <p>5 - $40.00</p>
+                                            <p>5 - $40.00</p>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div>
+                                            <img src="/images/slide.png" alt="">
+                                        </div>
+                                        <div>
+                                            <p>5 - $40.00</p>
+                                            <p>5 - $40.00</p>
+                                            <p>5 - $40.00</p>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div>
+                                            <img src="/images/slide.png" alt="">
+                                        </div>
+                                        <div>
+                                            <p>5 - $40.00</p>
+                                            <p>5 - $40.00</p>
+                                            <p>5 - $40.00</p>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div>
+                                            <img src="/images/slide.png" alt="">
+                                        </div>
+                                        <div>
+                                            <p>5 - $40.00</p>
+                                            <p>5 - $40.00</p>
+                                            <p>5 - $40.00</p>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div>
+                                            <img src="/images/slide.png" alt="">
+                                        </div>
+                                        <div>
+                                            <p>5 - $40.00</p>
+                                            <p>5 - $40.00</p>
+                                            <p>5 - $40.00</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="center">
+                                    <div class="swiper-nav">
+                                        <div class="swiper-prev">
+                                            <img src="/images/prev.svg" alt="">
+                                        </div>
+                                        <div class="swiper-plag center"></div>
+                                        <div class="swiper-next">
+                                            <img src="/images/next.svg" alt="">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="back">
-                                <p class="provider-name">Provider name</p>
-                                <p class="description">
-                                This game is played on the special board with figures of two colors
-                                </p>
-                                <div class="tags">
-                                <span>poker</span>
-                                <span>slot</span>
-                                <span>fish</span>
-                                <span>poker</span>
-                                <span>poker</span>
+                            <h6 class="game-content-title">
+                                Mystery symbol
+                            </h6>
+                            <div class="swiper-container-game2">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div>
+                                            <img src="/images/sli2.png" alt="">
+                                        </div>
+                                        <div>
+                                            <p>
+                                                Manage the Madness <br> To effectively navigate 
+                                                the monastery, you must be mindful of the 
+                                                characters' mental health.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div>
+                                            <img src="/images/sli2.png" alt="">
+                                        </div>
+                                        <div>
+                                            <p>
+                                                Manage the Madness <br> To effectively navigate 
+                                                the monastery, you must be mindful of the 
+                                                characters' mental health.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div>
+                                            <img src="/images/sli2.png" alt="">
+                                        </div>
+                                        <div>
+                                            <p>
+                                                Manage the Madness <br> To effectively navigate 
+                                                the monastery, you must be mindful of the 
+                                                characters' mental health.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div>
+                                            <img src="/images/sli2.png" alt="">
+                                        </div>
+                                        <div>
+                                            <p>
+                                                Manage the Madness <br> To effectively navigate 
+                                                the monastery, you must be mindful of the 
+                                                characters' mental health.
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="arrow2">
-                                    <img src="/images/arr-card.svg" alt="">
+                                <div class="center">
+                                    <div class="swiper-nav">
+                                        <div class="swiper-prev">
+                                            <img src="/images/prev.svg" alt="">
+                                        </div>
+                                        <div class="swiper-plag center"></div>
+                                        <div class="swiper-next">
+                                            <img src="/images/next.svg" alt="">
+                                        </div>
+                                    </div>
                                 </div>
+                            </div>
+                            <h6 class="game-content-title">
+                                Mystery symbol
+                            </h6>
+                            <div class="block-3">
+                                <img src="/images/single-3.png" alt="">
+                                <p>Sneaking, exploring, and gathering materials are all ideal tasks to complete during the day when security guards are easily distracted. But as morning gives way to evening, the paranormal inhabitants of the Monastery will start to reveal themselves; posing a threat to the characters’ sanity.</p>
+                            </div>
+                            <h6 class="game-content-title">
+                                Mystery symbol
+                            </h6>
+                            <div class="block-3">
+                                <img src="/images/single-3.png" alt="">
+                                <p>Sneaking, exploring, and gathering materials are all ideal tasks to complete during the day when security guards are easily distracted. But as morning gives way to evening, the paranormal inhabitants of the Monastery will start to reveal themselves; posing a threat to the characters’ sanity.</p>
+                            </div>
+                            <h6 class="game-content-title">
+                                Mystery symbol
+                            </h6>
+                            <div class="block-3">
+                                <img src="/images/single-3.png" alt="">
+                                <p>Sneaking, exploring, and gathering materials are all ideal tasks to complete during the day when security guards are easily distracted. But as morning gives way to evening, the paranormal inhabitants of the Monastery will start to reveal themselves; posing a threat to the characters’ sanity.</p>
                             </div>
                         </div>
-                        <div class="game-card">
-                            <div class="front">
-                                <img style="width: 100%;" src="/images/games.png" alt="" class="games-img">
-                                <p class="provider-name">Provider name</p>
-                                <div class="games-rat">
-                                    <div>
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star3.svg" alt="">
-                                    </div>
-                                    <p>4.5</p>
-                                </div>
-                            </div>
-                            <div class="back">
-                                <p class="provider-name">Provider name</p>
-                                <p class="description">
-                                This game is played on the special board with figures of two colors
-                                </p>
-                                <div class="tags">
-                                <span>poker</span>
-                                <span>slot</span>
-                                <span>fish</span>
-                                <span>poker</span>
-                                <span>poker</span>
-                                </div>
-                                <div class="arrow2">
-                                    <img src="/images/arr-card.svg" alt="">
-                                </div>
-                            </div>
+                        <div class="gradient-overlay"></div>
+                        <div class="center">
+                            <button class="toggle-button">
+                                <img src="/images/more.svg" alt="">
+                                Show more
+                            </button>
                         </div>
-                        <div class="game-card">
-                            <div class="front">
-                                <img style="width: 100%;" src="/images/games.png" alt="" class="games-img">
-                                <p class="provider-name">Provider name</p>
-                                <div class="games-rat">
-                                    <div>
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star3.svg" alt="">
-                                    </div>
-                                    <p>4.5</p>
-                                </div>
-                            </div>
-                            <div class="back">
-                                <p class="provider-name">Provider name</p>
-                                <p class="description">
-                                This game is played on the special board with figures of two colors
-                                </p>
-                                <div class="tags">
-                                <span>poker</span>
-                                <span>slot</span>
-                                <span>fish</span>
-                                <span>poker</span>
-                                <span>poker</span>
-                                </div>
-                                <div class="arrow2">
-                                    <img src="/images/arr-card.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="game-card">
-                            <div class="front">
-                                <img style="width: 100%;" src="/images/games.png" alt="" class="games-img">
-                                <p class="provider-name">Provider name</p>
-                                <div class="games-rat">
-                                    <div>
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star3.svg" alt="">
-                                    </div>
-                                    <p>4.5</p>
-                                </div>
-                            </div>
-                            <div class="back">
-                                <p class="provider-name">Provider name</p>
-                                <p class="description">
-                                This game is played on the special board with figures of two colors
-                                </p>
-                                <div class="tags">
-                                <span>poker</span>
-                                <span>slot</span>
-                                <span>fish</span>
-                                <span>poker</span>
-                                <span>poker</span>
-                                </div>
-                                <div class="arrow2">
-                                    <img src="/images/arr-card.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="game-card">
-                            <div class="front">
-                                <img style="width: 100%;" src="/images/games.png" alt="" class="games-img">
-                                <p class="provider-name">Provider name</p>
-                                <div class="games-rat">
-                                    <div>
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star3.svg" alt="">
-                                    </div>
-                                    <p>4.5</p>
-                                </div>
-                            </div>
-                            <div class="back">
-                                <p class="provider-name">Provider name</p>
-                                <p class="description">
-                                This game is played on the special board with figures of two colors
-                                </p>
-                                <div class="tags">
-                                <span>poker</span>
-                                <span>slot</span>
-                                <span>fish</span>
-                                <span>poker</span>
-                                <span>poker</span>
-                                </div>
-                                <div class="arrow2">
-                                    <img src="/images/arr-card.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="game-card">
-                            <div class="front">
-                                <img style="width: 100%;" src="/images/games.png" alt="" class="games-img">
-                                <p class="provider-name">Provider name</p>
-                                <div class="games-rat">
-                                    <div>
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star3.svg" alt="">
-                                    </div>
-                                    <p>4.5</p>
-                                </div>
-                            </div>
-                            <div class="back">
-                                <p class="provider-name">Provider name</p>
-                                <p class="description">
-                                This game is played on the special board with figures of two colors
-                                </p>
-                                <div class="tags">
-                                <span>poker</span>
-                                <span>slot</span>
-                                <span>fish</span>
-                                <span>poker</span>
-                                <span>poker</span>
-                                </div>
-                                <div class="arrow2">
-                                    <img src="/images/arr-card.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="game-card">
-                            <div class="front">
-                                <img style="width: 100%;" src="/images/games.png" alt="" class="games-img">
-                                <p class="provider-name">Provider name</p>
-                                <div class="games-rat">
-                                    <div>
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star3.svg" alt="">
-                                    </div>
-                                    <p>4.5</p>
-                                </div>
-                            </div>
-                            <div class="back">
-                                <p class="provider-name">Provider name</p>
-                                <p class="description">
-                                This game is played on the special board with figures of two colors
-                                </p>
-                                <div class="tags">
-                                <span>poker</span>
-                                <span>slot</span>
-                                <span>fish</span>
-                                <span>poker</span>
-                                <span>poker</span>
-                                </div>
-                                <div class="arrow2">
-                                    <img src="/images/arr-card.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="game-card">
-                            <div class="front">
-                                <img style="width: 100%;" src="/images/games.png" alt="" class="games-img">
-                                <p class="provider-name">Provider name</p>
-                                <div class="games-rat">
-                                    <div>
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star3.svg" alt="">
-                                    </div>
-                                    <p>4.5</p>
-                                </div>
-                            </div>
-                            <div class="back">
-                                <p class="provider-name">Provider name</p>
-                                <p class="description">
-                                This game is played on the special board with figures of two colors
-                                </p>
-                                <div class="tags">
-                                <span>poker</span>
-                                <span>slot</span>
-                                <span>fish</span>
-                                <span>poker</span>
-                                <span>poker</span>
-                                </div>
-                                <div class="arrow2">
-                                    <img src="/images/arr-card.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="game-card">
-                            <div class="front">
-                                <img style="width: 100%;" src="/images/games.png" alt="" class="games-img">
-                                <p class="provider-name">Provider name</p>
-                                <div class="games-rat">
-                                    <div>
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star3.svg" alt="">
-                                    </div>
-                                    <p>4.5</p>
-                                </div>
-                            </div>
-                            <div class="back">
-                                <p class="provider-name">Provider name</p>
-                                <p class="description">
-                                This game is played on the special board with figures of two colors
-                                </p>
-                                <div class="tags">
-                                <span>poker</span>
-                                <span>slot</span>
-                                <span>fish</span>
-                                <span>poker</span>
-                                <span>poker</span>
-                                </div>
-                                <div class="arrow2">
-                                    <img src="/images/arr-card.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="game-card">
-                            <div class="front">
-                                <img style="width: 100%;" src="/images/games.png" alt="" class="games-img">
-                                <p class="provider-name">Provider name</p>
-                                <div class="games-rat">
-                                    <div>
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star3.svg" alt="">
-                                    </div>
-                                    <p>4.5</p>
-                                </div>
-                            </div>
-                            <div class="back">
-                                <p class="provider-name">Provider name</p>
-                                <p class="description">
-                                This game is played on the special board with figures of two colors
-                                </p>
-                                <div class="tags">
-                                <span>poker</span>
-                                <span>slot</span>
-                                <span>fish</span>
-                                <span>poker</span>
-                                <span>poker</span>
-                                </div>
-                                <div class="arrow2">
-                                    <img src="/images/arr-card.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="game-card">
-                            <div class="front">
-                                <img style="width: 100%;" src="/images/games.png" alt="" class="games-img">
-                                <p class="provider-name">Provider name</p>
-                                <div class="games-rat">
-                                    <div>
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star2.svg" alt="">
-                                        <img src="/images/star3.svg" alt="">
-                                    </div>
-                                    <p>4.5</p>
-                                </div>
-                            </div>
-                            <div class="back">
-                                <p class="provider-name">Provider name</p>
-                                <p class="description">
-                                This game is played on the special board with figures of two colors
-                                </p>
-                                <div class="tags">
-                                <span>poker</span>
-                                <span>slot</span>
-                                <span>fish</span>
-                                <span>poker</span>
-                                <span>poker</span>
-                                </div>
-                                <div class="arrow2">
-                                    <img src="/images/arr-card.svg" alt="">
-                                </div>
-                            </div>
-                        </div>
-    
-    
                     </div>
                 </div>
                 <div class="games-grid-navbar-cont">

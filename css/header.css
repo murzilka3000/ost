@@ -3,7 +3,7 @@
 
 header {
     background: var(--grey);
-    padding: 14px 0;
+    padding: 14px 30px;
 }
 
 .header-cont {
@@ -41,5 +41,15 @@ header {
     text-transform: capitalize;
     text-align: center;
     color: var(--background);
+}
+
+@media screen and (max-width: 921px) { 
+    .nav-desktop {
+        display: none;
+    }
+
+    .header-cont > :nth-child(3) button {
+        display: none;
+    }
 }
 

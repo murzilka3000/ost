@@ -1,0 +1,107 @@
+.game-card {
+    background: #111;
+    color: white;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    transition: border 0.3s;
+    border: 1px solid transparent;
+    min-height: 271px;
+  }
+  
+  .game-card .front,
+  .game-card .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .game-card .front {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    font-weight: bold;
+  }
+  
+  .game-card .front .provider-name {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 139%;
+    letter-spacing: -0.01em;
+    color: #999;
+    margin-bottom: 10px;
+  }
+  
+  .game-card .back {
+    background: #111;
+    border: 1px solid #337aff;
+    border-radius: 12px;
+    padding: 26px;
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  
+  .game-card .back .description {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 143%;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    margin: 10px 0 15px 0;
+  }
+  
+  .game-card .back .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  
+  .game-card .back .tags span {
+    padding: 5px 10px;
+    border: 1px solid var(--color-3);
+    border-radius: 8px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 156%;
+    letter-spacing: -0.01em;
+    color: var(--white);
+  }
+  
+  .game-card .back .arrow2 {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 18px;
+    background: var(--background);
+    padding: 12px 10px;
+    border: 1px solid #1f1f1f;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  /* Анимация при наведении */
+  .game-card:hover {
+    border: 1px solid #337aff;
+  }
+  
+  .game-card:hover .front {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  
+  .game-card:hover .back {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+
+  .prov-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
