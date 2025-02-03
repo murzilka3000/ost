@@ -169,6 +169,24 @@ if (swiperContainer2) {
   });
 }
 
+const swiperContainer3 = document.querySelector('.swiper-container-game-3');
+
+if (swiperContainer3) {
+  const swiper = new Swiper('.swiper-container-game-3', {
+    loop: true,
+    slidesPerView: 4,
+    spaceBetween: 20,
+    navigation: {
+      nextEl: '.swiper-next', 
+      prevEl: '.swiper-prev',
+    },
+    pagination: {
+      el: '.swiper-plag', 
+      clickable: true,
+    },
+  });
+}
+
 
 /////развернуть блок игры
 document.addEventListener("DOMContentLoaded", function () {
