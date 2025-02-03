@@ -2,7 +2,7 @@
 
 .game-hero {
     background: linear-gradient(0deg, #0f0f0f 0%, rgba(10, 10, 10, 0.66) 33.99%, rgba(0, 0, 0, 0) 100%),
-    url("/images/game-bg.png");
+    url("../images/game-bg.png");
     min-height: 509px;
     display: flex;
     align-items: center;
