@@ -483,3 +483,31 @@
     letter-spacing: -0.01em;
     color: var(--white);
 }
+
+
+@media screen and (max-width: 888px) {
+    .ofers-cont {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 739px) {
+    .ofers-block-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .ofers-block h3 {
+        text-align: center;
+    }
+
+    .ofers-block-bottom > :first-child > :last-child  {
+        justify-content: center;
+    }
+
+    .ofers-block-bottom {
+        gap: 20px;
+    }
+}
