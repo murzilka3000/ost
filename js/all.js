@@ -147,6 +147,24 @@ if (swiperContainer) {
       el: '.swiper-plag', 
       clickable: true,
     },
+    breakpoints: {
+      870: {
+        slidesPerView: 4,
+        spaceBetween: 20,
+      },
+      622: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+      440: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+    }
   });
 }
 
@@ -166,6 +184,17 @@ if (swiperContainer2) {
       el: '.swiper-plag', 
       clickable: true,
     },
+    breakpoints: {
+      500: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      
+    }
   });
 }
 
@@ -184,6 +213,24 @@ if (swiperContainer3) {
       el: '.swiper-plag', 
       clickable: true,
     },
+    breakpoints: {
+      1140: {
+        slidesPerView: 4,
+        spaceBetween: 20,
+      },
+      800: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+      550: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+    }
   });
 }
 
@@ -225,6 +272,8 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   const popupBtn = document.querySelector(".popup");
   const popupFilters = document.querySelector(".popup-filters");
+
+  if (!popupBtn || !popupFilters) return; // Проверяем, есть ли элементы в DOM
 
   popupBtn.addEventListener("click", function () {
     popupFilters.classList.toggle("active");
