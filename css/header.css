@@ -43,13 +43,21 @@ header {
     color: var(--background);
 }
 
-@media screen and (max-width: 921px) { 
+@media screen and (max-width: 958px) { 
     .nav-desktop {
         display: none;
     }
 
     .header-cont > :nth-child(3) button {
         display: none;
+    }
+
+    .header-cont > :nth-child(2) {
+        display: none;
+    }
+
+    header {
+        padding: 14px 10px;
     }
 }
 

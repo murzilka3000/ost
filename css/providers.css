@@ -105,3 +105,12 @@
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
   }
+
+
+  @media screen and (max-width: 440px) {
+    .prov-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 20px;
+  }
+  }

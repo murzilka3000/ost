@@ -533,7 +533,7 @@ body {
 
 .form-cont {
   background: var(--grey);
-  padding: 110px 0;
+  padding: 110px 30px;
   margin-top: 57px;
 }
 
@@ -616,4 +616,133 @@ body {
   line-height: 139%;
   letter-spacing: -0.01em;
   color: var(--white);
+}
+
+
+@media screen and (max-width: 1217px) {
+  .wrapper-form h2 {
+    font-size: 50px;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .wrapper-form h2 {
+    font-size: 45px;
+  }
+}
+
+@media screen and (max-width: 915px) {
+  .wrapper-form input, .wrapper-form input::placeholder {
+    font-size: 14px;
+  }
+
+  .wrapper-form {
+    gap: 30px;
+  }
+}
+
+@media screen and (max-width: 896px) {
+  .wrapper-form h2 {
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 843px) {
+  .games-grid-navbar-cont {
+    display: none;
+  }
+}
+
+.burger {
+  display: none;
+}
+
+@media screen and (max-width: 787px) {
+  .wrapper-form {
+    flex-direction: column;
+  }
+
+  .form-cont {
+    background: var(--grey);
+    padding: 65px 30px;
+    margin-top: 57px;
+  }
+
+  .wrapper-form form {
+    flex-direction: column;
+    align-items: normal;
+    width: 100%;
+  }
+
+  .wrapper-form input {
+    width: 100%;
+  }
+
+  .wrapper-form h2 br {
+    display: none;
+  }
+
+  .wrapper-form h2 {
+    font-size: 30px;
+  }
+
+
+.burger {
+  display: block;
+}
+}
+
+.filters-mob {
+  display: none;
+}
+
+
+.popup-filters {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0 10px;
+  z-index: 1000;
+}
+
+.popup-filters.active {
+  display: block;
+}
+
+@media screen and (max-width: 844px) {
+  .filters-mob {
+    display: block;
+    padding-top: 19px;
+  }
+
+  .filters-mob-cont {
+    display: flex;
+    gap: 11px;
+    align-items: center;
+    background: var(--grey);
+    border-radius: 4px;
+    padding: 13px 10px;
+  }
+
+  .filters-mob-cont input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+  }
+
+  .filters-mob-cont input,
+  .filters-mob-cont input::placeholder {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 125%;
+    letter-spacing: 0.01em;
+    color: var(--color-text2);
+  }
+
+  .sort-cont {
+    padding: 19px 0;
+  }
 }

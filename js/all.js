@@ -222,6 +222,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+document.addEventListener("DOMContentLoaded", function () {
+  const popupBtn = document.querySelector(".popup");
+  const popupFilters = document.querySelector(".popup-filters");
+
+  popupBtn.addEventListener("click", function () {
+    popupFilters.classList.toggle("active");
+  });
+
+  // Закрытие при клике вне окна (опционально)
+  document.addEventListener("click", function (event) {
+    if (!popupFilters.contains(event.target) && !popupBtn.contains(event.target)) {
+      popupFilters.classList.remove("active");
+    }
+  });
+});
+
+
+
+
+
+
 
 
 

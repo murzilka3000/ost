@@ -28,3 +28,19 @@
     opacity: 0.1;
     transform: translateY(-10px);
 }
+
+@media screen and (max-width: 440px) {
+    .prov-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 10px;
+    }
+
+    .game-card .back {
+        padding: 10px;
+    }
+
+    .game-card .front {
+        padding: 10px;
+    }
+  }
