@@ -1,7 +1,7 @@
 
 
 .home-hero {
-    background: url('/images/home.png');
+    background: url('../images/home.png');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -777,7 +777,7 @@ margin-bottom: 20px;
 
     .home-hero {
         min-height: 452px;
-        background: url('/images/mob-hero.png');
+        background: url('../images/mob-hero.png');
     }
   }
 
