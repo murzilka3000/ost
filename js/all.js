@@ -292,6 +292,78 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+const swiperContainer4 = document.querySelector('.swiper-container-game-4');
+
+if (swiperContainer4) {
+  const swiper = new Swiper('.swiper-container-game-4', {
+    loop: true,
+    slidesPerView: 4,
+    spaceBetween: 20,
+    navigation: {
+      nextEl: '.swiper-next', 
+      prevEl: '.swiper-prev',
+    },
+    pagination: {
+      el: '.swiper-plag', 
+      clickable: true,
+    },
+    breakpoints: {
+      1140: {
+        slidesPerView: 4,
+        spaceBetween: 20,
+      },
+      800: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+      550: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+    }
+  });
+}
+
+
+const swiperContainer5 = document.querySelector('.swiper-container-game-5');
+
+if (swiperContainer4) {
+  const swiper = new Swiper('.swiper-container-game-5', {
+    loop: true,
+    slidesPerView: 3,
+    spaceBetween: 20,
+    navigation: {
+      nextEl: '.swiper-next', 
+      prevEl: '.swiper-prev',
+    },
+    pagination: {
+      el: '.swiper-plag', 
+      clickable: true,
+    },
+    breakpoints: {
+      1140: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+      800: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+      550: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+    }
+  });
+}
 
 
 
@@ -301,6 +373,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const flyContainer = document.querySelector(".fly");
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      flyContainer.classList.toggle("active", entry.isIntersecting);
+    },
+    { threshold: 0.8 } // Срабатывает, когда контейнер на 50% в зоне видимости
+  );
+
+  observer.observe(flyContainer);
+});
 
 
 
