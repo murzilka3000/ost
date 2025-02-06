@@ -43,9 +43,17 @@ header {
     color: var(--background);
 }
 
+.burger {
+    display: none;
+}
+
 @media screen and (max-width: 958px) { 
     .nav-desktop {
         display: none;
+    }
+
+    .burger {
+        display: block;
     }
 
     .header-cont > :nth-child(3) button {

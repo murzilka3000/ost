@@ -656,10 +656,6 @@ button {
   }
 }
 
-.burger {
-  display: none;
-}
-
 @media screen and (max-width: 787px) {
   .wrapper-form {
     flex-direction: column;
@@ -690,9 +686,6 @@ button {
   }
 
 
-.burger {
-  display: block;
-}
 }
 
 .filters-mob {
