@@ -395,5 +395,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+function updateRating() {
+  let minRange = document.getElementById("min-range");
+  let maxRange = document.getElementById("max-range");
+  let track = document.querySelector(".slider-track");
+  let minText = document.querySelector(".tag-item:first-child p:last-child");
+  let maxText = document.querySelector(".tag-item:last-child p:last-child");
 
+  if (!minRange || !maxRange || !track || !minText || !maxText) return;
+
+  let minVal = parseFloat(minRange.value);
+  let maxVal = parseFloat(maxRange.value);
+
+  if (minVal > maxVal - 0.1) {
+      minVal = maxVal - 0.1;
+      minRange.value = minVal;
+  }
+  if (maxVal < minVal + 0.1) {
+      maxVal = minVal + 0.1;
+      maxRange.value = maxVal;
+  }
+
+  let minPercent = ((minVal - minRange.min) / (minRange.max - minRange.min)) * 100;
+  let maxPercent = ((maxVal - maxRange.min) / (maxRange.max - maxRange.min)) * 100;
+
+  track.style.left = minPercent + "%";
+  track.style.width = (maxPercent - minPercent) + "%";
+
+  // Обновляем текстовые значения рейтинга
+  minText.textContent = minVal.toFixed(1);
+  maxText.textContent = maxVal.toFixed(1);
+}
+
+document.addEventListener("DOMContentLoaded", updateRating);
 

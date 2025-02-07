@@ -611,3 +611,11 @@
         gap: 5px;
     }
 }
+
+.game-hero-buttons-cont div button {
+    transition: border ease-in 0.3s;
+}
+
+.game-hero-buttons-cont div button:hover {
+    border: 1px solid var(--color-3);
+}
