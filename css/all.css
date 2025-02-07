@@ -742,3 +742,13 @@ button {
     padding: 19px 0;
   }
 }
+
+.navbar-tags div,
+.hero-tags div {
+  transition: background ease .3s;
+}
+
+.navbar-tags div:hover,
+.hero-tags div:hover {
+  background: var(--color-3);
+}
