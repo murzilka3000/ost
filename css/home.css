@@ -813,3 +813,6 @@ margin-bottom: 20px;
 
 
  
+.swiper-hero-cont {
+  overflow-y: hidden;
+}

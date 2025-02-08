@@ -429,3 +429,28 @@ function updateRating() {
 
 document.addEventListener("DOMContentLoaded", updateRating);
 
+
+
+
+
+
+
+
+
+
+
+
+const swiperContainer6 = document.querySelector('.swiper-hero-cont');
+
+if (swiperContainer6) {
+  const swiper = new Swiper('.swiper-hero-cont', {
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    navigation: {
+      nextEl: '.swiper-next-1', 
+      prevEl: '.swiper-prev-1',
+    },
+  });
+}
+
