@@ -20,6 +20,11 @@ footer h6 {
     letter-spacing: -0.01em;
     color: var(--color-text2);
     text-decoration: none;
+    transition: color ease-in-out .3s;
+}
+
+.footer-menu-cont nav ul li a:hover {
+    color: var(--color-1);
 }
 
 .footer-menu-cont nav ul li:not(:last-child) {
@@ -63,6 +68,11 @@ footer a {
     line-height: 125%;
     letter-spacing: 0.01em;
     color: var(--color-text2);
+    transition: color ease-in-out 0.3s;
+}
+
+.footer-bottom-cont a:hover {
+    color: var(--color-1);
 }
 
 .footer-links {
@@ -108,4 +118,27 @@ footer a {
     .footer-links > :first-child {
         padding-left: 0;
     }
+}
+
+
+.links a {
+    border: 1px solid var(--grey);
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    transition: border ease-out .3s;
+}
+
+.links a:hover {
+    border: 1px solid var(--color-3);
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    gap: 14px;
 }

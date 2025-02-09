@@ -66,6 +66,11 @@
     color: var(--white);
     border: none;
     cursor: pointer;
+    transition: background ease-in-out .3s;
+}
+
+.game-hero-buttons-cont > :first-child:hover {
+    background: var(--color-3);
 }
 
 

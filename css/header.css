@@ -27,12 +27,16 @@ header {
     text-align: center;
     color: var(--white);
     text-decoration: none;
+    transition: color ease-in-out .3s;
+}
+
+.header-cont nav ul li a:hover  {
+    color: var(--color-1);
 }
 
 .header-cont > :nth-child(3) button {
     border-radius: 7px;
     padding: 15px 25px;
-    border: none;
     background: var(--color-1);
     font-weight: 600;
     font-size: 16px;
@@ -41,6 +45,14 @@ header {
     text-transform: capitalize;
     text-align: center;
     color: var(--background);
+    border: 1px solid transparent;
+    transition: all ease-in-out .3s;
+}
+
+.header-cont > :nth-child(3) button:hover {
+    color: var(--color-1);
+    background: #1f1f1f;
+    border: 1px solid var(--color-1);
 }
 
 .burger {

@@ -454,3 +454,51 @@ if (swiperContainer6) {
   });
 }
 
+
+
+
+
+const homeDesc = document.querySelector('.home-desc');
+const toggleButton = document.querySelector('.toggle-button2');
+
+// Проверяем, найден ли элемент homeDesc
+if (homeDesc) {
+    // Задаем начальную высоту для .home-desc
+    homeDesc.style.maxHeight = '300px';
+    homeDesc.style.overflow = 'hidden';
+    homeDesc.style.transition = 'max-height 0.3s ease';
+
+    // Функция для установки или удаления класса, который добавляет псевдоэлемент
+    function setGradient() {
+        if (homeDesc.style.maxHeight === '300px') {
+            homeDesc.classList.add('home-desc--gradient');
+        } else {
+            homeDesc.classList.remove('home-desc--gradient');
+        }
+    }
+
+    // Вызываем setGradient при загрузке страницы, чтобы установить градиент при первой загрузке
+    setGradient();
+
+    // Проверяем, найден ли элемент toggleButton
+    if (toggleButton) {
+        toggleButton.addEventListener('click', () => {
+            if (homeDesc.style.maxHeight === '300px') {
+                // Если высота равна 300px, раскрываем его до полной высоты
+                homeDesc.style.maxHeight = homeDesc.scrollHeight + 'px';
+                toggleButton.innerHTML = `Show less <img src="./images/more.svg" alt="">`;
+            } else {
+                // Если он уже раскрыт, сворачиваем его обратно
+                homeDesc.style.maxHeight = '300px';
+                toggleButton.innerHTML = `Show more <img src="./images/more.svg" alt="">`;
+            }
+
+            // Вызываем setGradient после каждого клика, чтобы обновить градиент
+            setGradient();
+        });
+    } else {
+        console.warn('Элемент с классом toggle-button2 не найден!');
+    }
+} else {
+    console.warn('Элемент с классом home-desc не найден!');
+}

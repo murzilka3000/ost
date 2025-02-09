@@ -67,6 +67,11 @@
     line-height: 156%;
     letter-spacing: -0.01em;
     color: var(--white);
+    transition: background ease-in-out .3s;
+  }
+
+  .game-card .back .tags span:hover {
+    background: var(--color-3);
   }
   
   .game-card .back .arrow2 {
@@ -82,6 +87,11 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    transition: border ease-in-out .3s;
+  }
+
+  .game-card .back .arrow2:hover {
+    border: 1px solid var(--color-3);
   }
   
   /* Анимация при наведении */
