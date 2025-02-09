@@ -206,7 +206,7 @@
 
 
   .swiper-container-game-4 {
-    overflow-y: hidden;
+    overflow-x: hidden;
     padding-bottom: 40px;
   }
 
@@ -846,7 +846,7 @@ margin-bottom: 20px;
 
  
 .swiper-hero-cont {
-  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 
