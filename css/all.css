@@ -777,7 +777,8 @@ button {
   margin-bottom: 62px;
 }
 
-.slider-track {
+.slider-track,
+.slider-track2 {
   position: absolute;
   height: 100%;
   background: var(--color-3);
@@ -893,5 +894,25 @@ transition: border ease-in-out .3s;
   color: var(--white);
   margin-bottom: 20px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

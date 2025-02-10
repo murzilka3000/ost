@@ -395,39 +395,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-function updateRating() {
-  let minRange = document.getElementById("min-range");
-  let maxRange = document.getElementById("max-range");
-  let track = document.querySelector(".slider-track");
-  let minText = document.querySelector(".tag-item:first-child p:last-child");
-  let maxText = document.querySelector(".tag-item:last-child p:last-child");
 
-  if (!minRange || !maxRange || !track || !minText || !maxText) return;
-
-  let minVal = parseFloat(minRange.value);
-  let maxVal = parseFloat(maxRange.value);
-
-  if (minVal > maxVal - 0.1) {
-      minVal = maxVal - 0.1;
-      minRange.value = minVal;
-  }
-  if (maxVal < minVal + 0.1) {
-      maxVal = minVal + 0.1;
-      maxRange.value = maxVal;
-  }
-
-  let minPercent = ((minVal - minRange.min) / (minRange.max - minRange.min)) * 100;
-  let maxPercent = ((maxVal - maxRange.min) / (maxRange.max - maxRange.min)) * 100;
-
-  track.style.left = minPercent + "%";
-  track.style.width = (maxPercent - minPercent) + "%";
-
-  // Обновляем текстовые значения рейтинга
-  minText.textContent = minVal.toFixed(1);
-  maxText.textContent = maxVal.toFixed(1);
-}
-
-document.addEventListener("DOMContentLoaded", updateRating);
 
 
 
@@ -502,3 +470,178 @@ if (homeDesc) {
 } else {
     console.warn('Элемент с классом home-desc не найден!');
 }
+
+
+
+
+
+
+
+
+
+
+// function updateRating2() {
+//   let minRange = document.getElementById("min-range2");
+//   let maxRange = document.getElementById("max-range2");
+//   let track = document.querySelector(".slider-track2");
+//   let minYearText = document.getElementById("minYear");
+//   let maxYearText = document.getElementById("maxYear");
+
+//   if (!minRange || !maxRange || !track || !minYearText || !maxYearText) {
+//       console.error("Один или несколько элементов не найдены!");
+//       return;
+//   }
+
+//   let minVal = parseInt(minRange.value, 10);
+//   let maxVal = parseInt(maxRange.value, 10);
+
+//   // Предотвратить чрезмерное перекрытие ползунков
+//   if (minVal > maxVal - 1) {
+//       minVal = maxVal - 1;
+//       minRange.value = minVal;
+//   }
+//   if (maxVal < minVal + 1) {
+//       maxVal = minVal + 1;
+//       maxRange.value = maxVal;
+//   }
+
+//   let minPercent = ((minVal - parseInt(minRange.min, 10)) / (parseInt(minRange.max, 10) - parseInt(minRange.min, 10))) * 100;
+//   let maxPercent = ((maxVal - parseInt(maxRange.min, 10)) / (parseInt(maxRange.max, 10) - parseInt(maxRange.min, 10))) * 100;
+
+//   // Обновляем позицию и ширину выделенного диапазона
+//   track.style.left = minPercent + "%";
+//   track.style.width = (maxPercent - minPercent) + "%";
+
+//   // Обновляем отображаемые значения года
+//   minYearText.textContent = minVal.toString();
+//   maxYearText.textContent = maxVal.toString();
+// }
+
+// document.addEventListener("DOMContentLoaded", function() {
+//   updateRating2(); // Вызываем updateRating для инициализации отображения
+// });
+
+
+
+
+
+// function updateRating() {
+//   let minRange = document.getElementById("min-range");
+//   let maxRange = document.getElementById("max-range");
+//   let track = document.querySelector(".slider-track");
+//   let minText = document.getElementById("minRating");
+//   let maxText = document.getElementById("maxRating");
+
+//   if (!minRange || !maxRange || !track || !minText || !maxText) {
+//       console.error("One or more elements not found!");
+//       return;
+//   }
+
+//   let minVal = parseFloat(minRange.value);
+//   let maxVal = parseFloat(maxRange.value);
+
+//   if (minVal > maxVal - 0.1) {
+//       minVal = maxVal - 0.1;
+//       minRange.value = minVal;
+//   }
+//   if (maxVal < minVal + 0.1) {
+//       maxVal = minVal + 0.1;
+//       maxRange.value = maxVal;
+//   }
+
+//   let minPercent = ((minVal - parseFloat(minRange.min)) / (parseFloat(minRange.max) - parseFloat(minRange.min))) * 100;
+//   let maxPercent = ((maxVal - parseFloat(maxRange.min)) / (parseFloat(maxRange.max) - parseFloat(maxRange.min))) * 100;
+
+//   track.style.left = minPercent + "%";
+//   track.style.width = (maxPercent - minPercent) + "%";
+
+//   // Обновляем текстовые значения рейтинга
+//   minText.textContent = minVal.toFixed(1);
+//   maxText.textContent = maxVal.toFixed(1);
+// }
+
+// document.addEventListener("DOMContentLoaded", function() {
+//   updateRating(); // Call on DOMContentLoaded to initialize values
+// });
+
+
+
+
+
+
+
+
+
+function updateYearRating() {
+  let minRange = document.getElementById("min-range2");
+  let maxRange = document.getElementById("max-range2");
+  let track = document.querySelector(".slider-track2");
+  let minYearText = document.getElementById("minYear");
+  let maxYearText = document.getElementById("maxYear");
+
+  if (!minRange || !maxRange || !track || !minYearText || !maxYearText) {
+      console.error("Year slider: One or more elements not found!");
+      return;
+  }
+
+  let minVal = parseInt(minRange.value, 10);
+  let maxVal = parseInt(maxRange.value, 10);
+
+  if (minVal > maxVal - 1) {
+      minVal = maxVal - 1;
+      minRange.value = minVal;
+  }
+  if (maxVal < minVal + 1) {
+      maxVal = minVal + 1;
+      maxRange.value = maxVal;
+  }
+
+  let minPercent = ((minVal - parseInt(minRange.min, 10)) / (parseInt(minRange.max, 10) - parseInt(minRange.min, 10))) * 100;
+  let maxPercent = ((maxVal - parseInt(maxRange.min, 10)) / (parseInt(maxRange.max, 10) - parseInt(maxRange.min, 10))) * 100;
+
+  track.style.left = minPercent + "%";
+  track.style.width = (maxPercent - minPercent) + "%";
+
+  minYearText.textContent = minVal.toString();
+  maxYearText.textContent = maxVal.toString();
+}
+
+function updateGenericRating() {
+  let minRange = document.getElementById("min-range");
+  let maxRange = document.getElementById("max-range");
+  let track = document.querySelector(".slider-track");
+  let minText = document.getElementById("minRating");
+  let maxText = document.getElementById("maxRating");
+
+  if (!minRange || !maxRange || !track || !minText || !maxText) {
+      console.error("Generic rating slider: One or more elements not found!");
+      return;
+  }
+
+  let minVal = parseFloat(minRange.value);
+  let maxVal = parseFloat(maxRange.value);
+
+  if (minVal > maxVal - 0.1) {
+      minVal = maxVal - 0.1;
+      minRange.value = minVal;
+  }
+  if (maxVal < minVal + 0.1) {
+      maxVal = minVal + 0.1;
+      maxRange.value = maxVal;
+  }
+
+  let minPercent = ((minVal - parseFloat(minRange.min)) / (parseFloat(minRange.max) - parseFloat(minRange.min))) * 100;
+  let maxPercent = ((maxVal - parseFloat(maxRange.min)) / (parseFloat(maxRange.max) - parseFloat(maxRange.min))) * 100;
+
+  track.style.left = minPercent + "%";
+  track.style.width = (maxPercent - minPercent) + "%";
+
+  minText.textContent = minVal.toFixed(1);
+  maxText.textContent = maxVal.toFixed(1);
+}
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  updateYearRating();
+  updateGenericRating();
+});

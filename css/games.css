@@ -26,7 +26,7 @@
 
 .game-card:hover .front {
     opacity: 0.1;
-    transform: translateY(-10px);
+    /* transform: translateY(-10px); */
 }
 
 @media screen and (max-width: 440px) {

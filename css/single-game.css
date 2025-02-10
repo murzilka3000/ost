@@ -218,6 +218,7 @@
     padding: 16px;
     background: var(--grey);
     margin-top: 44px;
+    gap: 10px;
 }
 
 
@@ -240,13 +241,14 @@
     border-radius: 100px!important;
     height: 4px!important;
     background: #0f0f0f!important;
+    width: 100%;
 }
 
 .swiper-pagination-bullet-active {
     border-radius: 100px!important;
-    width: 23px!important;
     height: 4px!important;
     background: var(--color-3)!important;
+    width: 100%!important;
 }
 
 .block-3 {
