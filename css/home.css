@@ -266,6 +266,7 @@
     padding: 106px 30px;
     position: relative;
     margin-bottom: 40px;
+    overflow: hidden;
   }
 
   .fly a, .fly img {
@@ -273,16 +274,16 @@
     transition: transform 1s ease-out;
   }
 
-    .fly img:nth-child(6) { top: 60px; left: 60px; }
+    .fly img:nth-child(6) { top: 60px; left: 760px; }
 
 
-    .fly img:nth-child(7) { top: 60px; right: 60px; }
+    .fly img:nth-child(7) { top: 160px; right: 160px; }
 
 
-    .fly img:nth-child(8) { bottom: 60px; left: 60px; }
+    .fly img:nth-child(8) { bottom: 60px; left: 460px; }
 
 
-    .fly img:nth-child(9) { bottom: 60px; right: 60px; }
+    .fly img:nth-child(9) { bottom: 60px; right: 360px; }
 
     /* разделитель */
 
@@ -308,7 +309,7 @@
 
   /* Анимация разлёта */
     .fly.active a:nth-child(2) { 
-        transform: translate(-50px, -10px) rotate(-14deg);
+        transform: translate(-120px, -40px) rotate(-45deg);
      }
     .fly.active a:nth-child(3) { 
         transform: translate(50px, -90px) rotate(14deg);
@@ -322,7 +323,7 @@
 
 
     .fly.active img:nth-child(6) { 
-        transform: translate(-50px, -50px);
+        transform: translate(-70px, -60px) rotate(-30deg);
      }
 
     .fly.active img:nth-child(7) { 
