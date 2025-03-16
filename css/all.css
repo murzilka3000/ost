@@ -3431,11 +3431,29 @@ align-items: center;
     justify-content: center;
     min-height: 900px;
     position: relative;
-}
+  }
+
+  .thank-you-cont::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 100%; /* Высота затемнения */
+ 
+    background: linear-gradient(to top, 
+        rgba(26, 26, 26, 1) 0%,  /* Полностью #1A1A1A */
+        rgba(26, 26, 26, 0.95) 0%,  /* Почти черный */
+        rgba(26, 26, 26, 0.7) 10%,  /* Резкое осветление */
+        rgba(26, 26, 26, 0) 80%  /* Полностью прозрачный */
+    );
+  }
 
 .thk-1, .thk-2 {
   max-width: 240px;
 }
+
+
 }
 
 /* thank-you end */
@@ -3605,6 +3623,7 @@ align-items: center;
 
   .search {
     padding-top: 17px;
+    padding-bottom: 30px;
   }
 
   .search-cont {
