@@ -645,3 +645,77 @@ document.addEventListener("DOMContentLoaded", function() {
   updateYearRating();
   updateGenericRating();
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const accordion = document.getElementById('accordion');
+  const headers = accordion.querySelectorAll('.accordion-header');
+
+  // Открываем первый аккордеон по умолчанию
+  if (headers.length > 0) {
+    const firstHeader = headers[0];
+    const firstQuaContItem = firstHeader.closest('.qua-cont-item');
+
+    firstHeader.classList.add('active');
+    firstHeader.parentNode.querySelector('.accordion-content').classList.add('active');
+
+    if (firstQuaContItem) {
+      firstQuaContItem.classList.remove('align-center');
+    }
+    firstHeader.classList.remove('m-0');
+  }
+
+  headers.forEach(header => {
+      header.addEventListener('click', function() {
+          // Закрываем все остальные элементы аккордеона
+          headers.forEach(otherHeader => {
+              if (otherHeader !== header) {
+                  otherHeader.classList.remove('active');
+                  otherHeader.parentNode.querySelector('.accordion-content').classList.remove('active');
+
+                  // Возвращаем классы неактивным элементам
+                  const otherQuaContItem = otherHeader.closest('.qua-cont-item'); // Находим qua-cont-item
+                  if (otherQuaContItem) {
+                      otherQuaContItem.classList.add('align-center'); // Добавляем align-center *qua-cont-item*
+                  }
+                  otherHeader.classList.add('m-0'); // Добавляем m-0 *accordion-header*
+              }
+          });
+
+          // Переключаем текущий элемент
+          header.classList.toggle('active');
+          const content = header.parentNode.querySelector('.accordion-content');
+          content.classList.toggle('active');
+
+          // Убираем классы у активного элемента и добавляем неактивному
+          const quaContItem = header.closest('.qua-cont-item'); // Находим qua-cont-item
+          const accordionHeader = header; // Получаем элемент accordion-header
+
+          if (header.classList.contains('active')) {
+              if (quaContItem) {
+                  quaContItem.classList.remove('align-center'); // Убираем align-center *qua-cont-item*
+              }
+              accordionHeader.classList.remove('m-0'); // Убираем m-0 *accordion-header*
+          } else {
+              if (quaContItem) {
+                  quaContItem.classList.add('align-center'); // Добавляем align-center *qua-cont-item*
+              }
+              accordionHeader.classList.add('m-0'); // Добавляем m-0 *accordion-header*
+          }
+      });
+  });
+});
