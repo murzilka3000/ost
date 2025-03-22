@@ -719,3 +719,45 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const burgerButton = document.querySelector(".burger");
+  const burgerPopup = document.querySelector(".burger-popup");
+  const burgerCloseBtn = document.querySelector(".burger-close");
+
+  if (burgerButton && burgerPopup) {
+      // Открытие всплывающего окна
+      burgerButton.addEventListener("click", () => {
+          burgerPopup.style.display = "flex";
+      });
+
+      // Закрытие при клике вне окна
+      burgerPopup.addEventListener("click", (e) => {
+          if (e.target === burgerPopup) {
+              burgerPopup.style.display = "none";
+          }
+      });
+  }
+
+  if (burgerCloseBtn) {
+      // Закрытие при клике на кнопку "×"
+      burgerCloseBtn.addEventListener("click", () => {
+          burgerPopup.style.display = "none";
+      });
+  }
+});

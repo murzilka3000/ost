@@ -3847,7 +3847,100 @@ align-items: center;
 
 .align-center {
   gap: 0;
+  
 }
 
 
 /* qua start */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* burger start */
+
+/* Стили для кнопки-бургера */
+.burger {
+  cursor: pointer;
+}
+
+/* Стили для всплывающего окна */
+.burger-popup {
+  display: none; /* Скрыто по умолчанию */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000000000;
+}
+
+/* Контент всплывающего окна */
+.burger-popup-content {
+  background: var(--grey);
+  padding: 20px;
+  position: relative;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+/* Кнопка закрытия */
+.burger-close {
+  position: absolute;
+  top: 29px;
+  right: 29px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+.nav-mob ul {
+  display: flex;
+  flex-direction: column;
+  margin-top: 73px;
+}
+
+.nav-mob ul a{
+  font-weight: 600!important;
+  font-size: 40px!important;
+  line-height: 112%!important;
+  letter-spacing: -0.01em!important;
+  text-align: center;
+  color: var(--white);
+}
+
+.burger-popup-content > :last-child {
+  display: flex;
+  justify-content: center;
+  margin-top: 75px;
+}
+
+.burger-popup-content > :last-child a {
+  background: var(--color-1);
+  border: 1px solid var(--color-1);
+  border-radius: 7px;
+  padding: 15px 25px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 112%;
+  letter-spacing: 0.07em;
+  text-transform: capitalize;
+  text-align: center;
+  color: var(--background);
+  text-decoration: none;
+}
+
+/* burger end */
