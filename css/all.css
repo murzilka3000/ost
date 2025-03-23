@@ -1423,7 +1423,7 @@ footer a {
 }
 
 
-.swiper-container-game-4 {
+.swiper-container-game-4, .swiper-container-game-14 {
   overflow-x: hidden;
   padding-bottom: 40px;
 }
@@ -2946,7 +2946,7 @@ align-items: center;
   .swiper-wrapper
   .swiper-slide
   .game-card {
-    min-height: 380px!important;
+    min-height: 350px!important;
   }
 
   .swiper-container-game-4

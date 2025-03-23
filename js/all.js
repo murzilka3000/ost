@@ -832,3 +832,53 @@ if (swiperContainer10) {
     }
   });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const swiperContainer14 = document.querySelector('.swiper-container-game-14');
+
+if (swiperContainer14) {
+  const swiper = new Swiper('.swiper-container-game-14', {
+    loop: true,
+    slidesPerView: 6,
+    spaceBetween: 20,
+    navigation: {
+      nextEl: '.swiper-next', 
+      prevEl: '.swiper-prev',
+    },
+    pagination: {
+      el: '.swiper-plag', 
+      clickable: true,
+    },
+    breakpoints: {
+      1140: {
+        slidesPerView: 6,
+        spaceBetween: 20,
+      },
+      800: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+      550: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+    }
+  });
+}
