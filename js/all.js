@@ -775,9 +775,60 @@ document.addEventListener("DOMContentLoaded", function() {
 const toggleButton2 = document.querySelector('.toggle-button3');
 const hiddenItems = document.querySelectorAll('.blog-cont-center-item.hidden');
 
+if (toggleButton2 && hiddenItems.length > 0) {
     toggleButton2.addEventListener('click', () => {
         hiddenItems.forEach(item => {
             item.classList.remove('hidden');
         });
-        toggleButton2.style.display = 'none'; // Hide the button after showing all items
-});
+        toggleButton2.style.display = 'none'; // Скрываем кнопку после отображения всех элементов
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const swiperContainer10 = document.querySelector('.swiper-container-game-10');
+
+if (swiperContainer10) {
+  const swiper = new Swiper('.swiper-container-game-10', {
+    loop: true,
+    slidesPerView: 4,
+    spaceBetween: 20,
+    navigation: {
+      nextEl: '.swiper-next', 
+      prevEl: '.swiper-prev',
+    },
+    pagination: {
+      el: '.swiper-plag', 
+      clickable: true,
+    },
+    breakpoints: {
+      1186: {
+        slidesPerView: 4,
+      },
+      970: {
+        slidesPerView: 3,
+      },
+      606: {
+        slidesPerView: 2,
+      },
+      0: {
+        slidesPerView: 1,
+      },
+      
+    }
+  });
+}
