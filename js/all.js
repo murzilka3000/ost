@@ -374,18 +374,18 @@ if (swiperContainer4) {
 
 
 
-document.addEventListener("DOMContentLoaded", () => {
-  const flyContainer = document.querySelector(".fly");
+// document.addEventListener("DOMContentLoaded", () => {
+//   const flyContainer = document.querySelector(".fly");
 
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      flyContainer.classList.toggle("active", entry.isIntersecting);
-    },
-    { threshold: 0.8 } // Срабатывает, когда контейнер на 50% в зоне видимости
-  );
+//   const observer = new IntersectionObserver(
+//     ([entry]) => {
+//       flyContainer.classList.toggle("active", entry.isIntersecting);
+//     },
+//     { threshold: 0.8 } // Срабатывает, когда контейнер на 50% в зоне видимости
+//   );
 
-  observer.observe(flyContainer);
-});
+//   observer.observe(flyContainer);
+// });
 
 
 
@@ -606,45 +606,45 @@ function updateYearRating() {
   maxYearText.textContent = maxVal.toString();
 }
 
-function updateGenericRating() {
-  let minRange = document.getElementById("min-range");
-  let maxRange = document.getElementById("max-range");
-  let track = document.querySelector(".slider-track");
-  let minText = document.getElementById("minRating");
-  let maxText = document.getElementById("maxRating");
+// function updateGenericRating() {
+//   let minRange = document.getElementById("min-range");
+//   let maxRange = document.getElementById("max-range");
+//   let track = document.querySelector(".slider-track");
+//   let minText = document.getElementById("minRating");
+//   let maxText = document.getElementById("maxRating");
 
-  if (!minRange || !maxRange || !track || !minText || !maxText) {
-      console.error("Generic rating slider: One or more elements not found!");
-      return;
-  }
+//   if (!minRange || !maxRange || !track || !minText || !maxText) {
+//       console.error("Generic rating slider: One or more elements not found!");
+//       return;
+//   }
 
-  let minVal = parseFloat(minRange.value);
-  let maxVal = parseFloat(maxRange.value);
+//   let minVal = parseFloat(minRange.value);
+//   let maxVal = parseFloat(maxRange.value);
 
-  if (minVal > maxVal - 0.1) {
-      minVal = maxVal - 0.1;
-      minRange.value = minVal;
-  }
-  if (maxVal < minVal + 0.1) {
-      maxVal = minVal + 0.1;
-      maxRange.value = maxVal;
-  }
+//   if (minVal > maxVal - 0.1) {
+//       minVal = maxVal - 0.1;
+//       minRange.value = minVal;
+//   }
+//   if (maxVal < minVal + 0.1) {
+//       maxVal = minVal + 0.1;
+//       maxRange.value = maxVal;
+//   }
 
-  let minPercent = ((minVal - parseFloat(minRange.min)) / (parseFloat(minRange.max) - parseFloat(minRange.min))) * 100;
-  let maxPercent = ((maxVal - parseFloat(maxRange.min)) / (parseFloat(maxRange.max) - parseFloat(maxRange.min))) * 100;
+//   let minPercent = ((minVal - parseFloat(minRange.min)) / (parseFloat(minRange.max) - parseFloat(minRange.min))) * 100;
+//   let maxPercent = ((maxVal - parseFloat(maxRange.min)) / (parseFloat(maxRange.max) - parseFloat(maxRange.min))) * 100;
 
-  track.style.left = minPercent + "%";
-  track.style.width = (maxPercent - minPercent) + "%";
+//   track.style.left = minPercent + "%";
+//   track.style.width = (maxPercent - minPercent) + "%";
 
-  minText.textContent = minVal.toFixed(1);
-  maxText.textContent = maxVal.toFixed(1);
-}
+//   minText.textContent = minVal.toFixed(1);
+//   maxText.textContent = maxVal.toFixed(1);
+// }
 
 
-document.addEventListener("DOMContentLoaded", function() {
-  updateYearRating();
-  updateGenericRating();
-});
+// document.addEventListener("DOMContentLoaded", function() {
+//   updateYearRating();
+//   updateGenericRating();
+// });
 
 
 
@@ -760,4 +760,24 @@ document.addEventListener("DOMContentLoaded", function() {
           burgerPopup.style.display = "none";
       });
   }
+});
+
+
+
+
+
+
+
+
+
+
+
+const toggleButton2 = document.querySelector('.toggle-button3');
+const hiddenItems = document.querySelectorAll('.blog-cont-center-item.hidden');
+
+    toggleButton2.addEventListener('click', () => {
+        hiddenItems.forEach(item => {
+            item.classList.remove('hidden');
+        });
+        toggleButton2.style.display = 'none'; // Hide the button after showing all items
 });
