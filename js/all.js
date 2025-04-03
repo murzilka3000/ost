@@ -882,3 +882,41 @@ if (swiperContainer14) {
     }
   });
 }
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".navbar-tags2").forEach(navbarTags => {
+    const moreButton = navbarTags.nextElementSibling?.querySelector("p");
+    const moreIcon = navbarTags.nextElementSibling?.querySelector("img");
+    const borderItems = navbarTags.querySelectorAll(".border");
+
+    if (!moreButton || !moreIcon || borderItems.length === 0) return;
+
+    // Скрываем все элементы, кроме первых 6
+    borderItems.forEach((item, index) => {
+      if (index >= 10) {
+        item.style.display = "none";
+      }
+    });
+
+    navbarTags.nextElementSibling.addEventListener("click", () => {
+      const isExpanded = navbarTags.classList.toggle("expanded");
+
+      if (isExpanded) {
+        borderItems.forEach(item => (item.style.display = "block")); // Показываем все элементы
+        moreButton.textContent = "Show less";
+        moreIcon.style.transform = "rotate(180deg)";
+      } else {
+        borderItems.forEach((item, index) => {
+          if (index >= 10) item.style.display = "none"; // Снова скрываем элементы
+        });
+        moreButton.textContent = "Show more";
+        moreIcon.style.transform = "rotate(0deg)";
+      }
+    });
+  });
+});
