@@ -4381,3 +4381,148 @@ align-items: center;
     gap: 15px;
   }
 }
+
+
+
+.profile-header-cont {
+  display: flex;
+  align-items: flex-end;
+  gap: 40px;
+  padding-top: 40px;
+  padding-bottom: 80px;
+}
+
+
+.profile-header-cont > :first-child {
+  position: relative;
+}
+
+.profile-img-2 {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+
+.profile-img {
+  max-width: 180px;
+  max-height: 180px;
+  border-radius: 100%;
+}
+
+.profile-header-cont h6 {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 62%;
+  letter-spacing: 0.01em;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.profile-header-cont p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 139%;
+  letter-spacing: -0.01em;
+  color: var(--color-text2);
+  margin-bottom: 40px;
+}
+
+
+.profile-info-cont {
+  display: flex;
+  gap: 142px;
+  padding-bottom: 50px;
+}
+
+.profile-info-cont > :first-child {
+  flex: 2;
+}
+
+.profile-info-cont > :last-child {
+  flex: 8;
+}
+
+.profile-info-cont ul a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  padding: 15px 12px 15px 15px;
+}
+
+.profile-info-cont ul > :not(:last-child) {
+  margin-bottom: 24px;
+}
+
+.profile-info-cont ul a p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 139%;
+  letter-spacing: -0.01em;
+  color: #caced8;
+}
+
+.profile-normal.active-profile {
+  background: var(--color-3);
+  border-radius: 8px;
+}
+
+
+.profile-grid div {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 50px;
+}
+
+.profile-grid input, .profile-grid input::placeholder {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 139%;
+  letter-spacing: -0.01em;
+  color: var(--color-text2);
+}
+
+.profile-grid input {
+  background: #1a1a1a;
+  border: 1px solid var(--grey);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.profile-grid label {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 150%;
+  color: var(--white);
+}
+
+.profile-button button {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 139%;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  border-radius: 8px;
+  padding: 14px 24px;
+  background: var(--color-2);
+  border: none;
+}
+
+.profile-button {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 50px;
+}
+
+.profile-info-cont > :last-child {
+  border: 1px solid var(--grey);
+  border-radius: 12px;
+  padding: 50px;
+}
