@@ -978,7 +978,7 @@ passwordToggles.forEach(toggle => {
               img.alt = 'Hide password';
           } else {
               passwordInput.type = 'password';
-              img.src = 'path/to/eye-open.svg';
+              img.src = './images/Union2.svg';
               img.alt = 'Show password';
           }
       }
