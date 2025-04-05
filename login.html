@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/all.css">
+</head>
+<body>
+    <main class="main">
+        <section class="login">
+            <div 
+            style="
+                background-image: url('./images/login.png');
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+            "
+            class="login-background"
+            ></div>
+            <div>
+                <div>
+                    <a href="" class="back-button2">
+                        <img src="./images/arrow_back_ios_24px.svg" alt="">
+                        <p>Back</p>
+                    </a>
+                    <div class="form-block">
+                        <div class="form-container">
+                            <div class="block-1111">
+                                <div class="tabs2">
+                                    <button class="tab-button active" data-tab="login">Login</button>
+                                    <button class="tab-button" data-tab="signup">Signup</button>
+                                </div>
+                            </div>
+                    
+                            <!-- Login Form -->
+                            <div class="form-content active" id="login">
+                                <form>
+                                    <div class="cont-123"> 
+                                        <div class="form-group">
+                                            <label for="login-username">Username or email address</label>
+                                            <input type="email" id="login-username" name="login-username" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="login-password">Password</label>
+                                            <div class="password-wrapper">
+                                                <input type="password" id="login-password" name="login-password" required>
+                                                <span class="toggle-password">
+                                                    <img src="./images/Union.svg" alt="">
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="options">
+                                             <div class="flex-4343">
+                                                <div class="remember-me">
+                                                    <input type="checkbox" id="remember-login" name="remember-login">
+                                                    <label for="remember-login">Remember me</label>
+                                                </div>
+                                                <button type="submit" class="submit-button">Log in</button>
+                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-links">
+                                        <div class="lost-password">
+                                            <span>Lost your password?</span>
+                                        </div>
+                                        <span>Dont have an account?</span> <a href="#" id="show-signup">Sign up here</a>
+                                    </div>
+                                </form>
+                            </div>
+                    
+                            <!-- Signup Form -->
+                            <div class="form-content" id="signup">
+                                <form>
+                                    <div class="cont-123"> 
+                                        <div class="form-group">
+                                            <label for="login-username">Email address</label>
+                                            <input type="email" id="login-username" name="login-username" required>
+                                            <!-- The dropdown arrow from image is browser default for saved logins, not styled here -->
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="login-password">Username</label>
+                                            <div class="password-wrapper">
+                                                <input type="email" id="login-username" name="login-username" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="login-password">Full name</label>
+                                            <div class="password-wrapper">
+                                                <input type="email" id="login-username" name="login-username" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="login-password">Date of birth</label>
+                                            <div class="password-wrapper">
+                                                <input type="email" id="login-username" name="login-username" required>
+                                            </div>
+                                        </div>
+                                        <div class="options">
+                                             <div class="flex-4343">
+                                                <div class="remember-me">
+                                                    <input type="checkbox" id="remember-signup" name="remember-signup">
+                                                    <label for="remember-signup">Remember me</label> 
+                                                </div>
+                                                <button type="submit" class="submit-button">Log in</button>
+                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-links">
+                                        <div class="lost-password">
+                                            <span>Lost your password?</span>
+                                        </div>
+                                        <span>Dont have an account?</span> <a href="#" id="show-signup">Sign up here</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="./js/all.js"></script>
+</body>
+</html>

@@ -920,3 +920,82 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const tabButtons = document.querySelectorAll('.tab-button');
+const formContents = document.querySelectorAll('.form-content');
+const passwordToggles = document.querySelectorAll('.toggle-password');
+const showSignupLink = document.getElementById('show-signup');
+const showLoginLink = document.getElementById('show-login');
+
+function switchTab(targetTabId) {
+    tabButtons.forEach(button => button.classList.remove('active'));
+    formContents.forEach(content => content.classList.remove('active'));
+
+    const targetTabButton = document.querySelector(`.tab-button[data-tab="${targetTabId}"]`);
+    const targetFormContent = document.getElementById(targetTabId);
+
+    if (targetTabButton && targetFormContent) {
+        targetTabButton.classList.add('active');
+        targetFormContent.classList.add('active');
+    }
+}
+
+tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const tabId = button.getAttribute('data-tab');
+        switchTab(tabId);
+    });
+});
+
+passwordToggles.forEach(toggle => {
+  toggle.addEventListener('click', () => {
+      const passwordInput = toggle.previousElementSibling;
+      const img = toggle.querySelector('img');
+
+      if (passwordInput && img && (passwordInput.type === 'password' || passwordInput.type === 'text')) {
+          if (passwordInput.type === 'password') {
+              passwordInput.type = 'text';
+              img.src = './images/Union.svg';
+              img.alt = 'Hide password';
+          } else {
+              passwordInput.type = 'password';
+              img.src = 'path/to/eye-open.svg';
+              img.alt = 'Show password';
+          }
+      }
+  });
+});
+
+if (showSignupLink) {
+    showSignupLink.addEventListener('click', (event) => {
+        event.preventDefault();
+        switchTab('signup');
+    });
+}
+
+if (showLoginLink) {
+    showLoginLink.addEventListener('click', (event) => {
+        event.preventDefault();
+        switchTab('login');
+    });
+}
+
