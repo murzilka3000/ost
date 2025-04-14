@@ -5654,3 +5654,225 @@ to { opacity: 1; }
   color: #777; /* Dim years outside current decade view */
   /* cursor: default; Remove if you want to allow clicking them */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* виджет бигвин */
+
+
+
+
+.tab-content175 { 
+  display: none;
+}
+
+
+.tab-content175.active175 { 
+  display: block;
+}
+
+.video-container-32 video {
+  aspect-ratio: 16/9;
+  width: 100%;
+}
+
+.bigwin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 23px;
+  margin-top: 40px;
+}
+
+.bigwin-grid-item > :first-child div {
+  border-radius: 8px;
+  padding: 12px;
+  background: var(--color-3);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bigwin-grid-item {
+  display: flex;
+  gap: 20px;
+
+}
+
+.bigwin-grid-item > :first-child  p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 156%;
+  letter-spacing: -0.01em;
+  color: #caced8;
+}
+
+.bigwin-grid-item > :last-child  p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 156%;
+  letter-spacing: -0.01em;
+  color: #98989a;
+}
+
+.tab-buttons175 {
+  display: flex;
+  align-items: flex-end;
+}
+
+.tab-buttons175 > :first-child,
+.tab-buttons175 > :last-child {
+  flex: 1;
+}
+
+.tab-buttons175 button {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid var(--color-text2);
+  border-radius: 8px 8px 0 0;
+  padding: 8px 16px;
+  background: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  gap: 12px;
+  justify-content: center;
+}
+
+.tab-buttons175 button p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 139%;
+  letter-spacing: -0.01em;
+  color: var(--white);
+}
+
+
+.tab-content175 h3 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 110%;
+  letter-spacing: 0.01em;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: var(--white);
+  text-decoration: none;
+  margin-top: 34px;
+  margin-bottom: 20px;
+}
+
+.tab-content175 h3 a {
+  color: var(--color-3);
+}
+
+
+.tab-content175-p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 139%;
+  letter-spacing: -0.01em;
+  color: #98989a;
+  margin-bottom: 23px;
+}
+
+.video-container-32 video {
+  border-radius: 12px;
+}
+
+.video-container-32 {
+  position: relative;
+}
+
+.video-overlay2 {
+  border-radius: 8px;
+  padding: 13px 16px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  background: var(--background);
+  display: inline-flex;
+  gap: 7px;
+  position: absolute;
+  top: 29px;
+  left: 29px;
+
+}
+
+.video-overlay2 > :last-child > :first-child {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 139%;
+  letter-spacing: -0.01em;
+  color: var(--white);
+}
+
+.video-overlay2 > :last-child > :last-child  {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 179%;
+  letter-spacing: -0.01em;
+  color: var(--color-text2);
+}
+
+.tab-button175.active175 {
+  border-color: var(--color-3);
+}
+
+.tabs-content175 {
+  border: 1px solid var(--grey);
+  border-radius: 0 0 12px 12px;
+  padding: 20px;
+}
+
+
+.arrow3 {
+  border: 1px solid var(--color-3);
+  border-radius: 8px;
+  padding: 17px 16px;
+  background: var(--background);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+
+@media screen and (max-width: 630px) {
+  .video-overlay2 {
+    padding: 13px 16px;
+    display: flex;
+    gap: 7px;
+    position: static;
+  }
+
+  .video-container-32 {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 25px;
+  }
+
+  .tab-buttons175 button {
+    flex-direction: column;
+  }
+}
+
+
+/* виджет бигвин */

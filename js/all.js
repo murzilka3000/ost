@@ -1005,87 +1005,105 @@ if (showLoginLink) {
 
 document.addEventListener('DOMContentLoaded', () => {
   // --- DOM Elements ---
-  const dateInputContainer = document.querySelector('.date-input-container');
-  const selectedDateInput = document.getElementById('selected-date-input');
-  const calendarIcon = document.getElementById('calendar-icon');
-  const calendarPopup = document.getElementById('calendar-popup');
-  const calendarViews = document.getElementById('calendar-views');
-  const dateView = document.getElementById('date-view');
-  const monthView = document.getElementById('month-view');
-  const yearView = document.getElementById('year-view');
+  // Use helper function for safe selection
+  const getElement = (selector) => document.querySelector(selector);
+  const getElementById = (id) => document.getElementById(id);
+  const getAllElements = (selector) => document.querySelectorAll(selector);
+
+  const dateInputContainer = getElement('.date-input-container');
+  const selectedDateInput = getElementById('selected-date-input');
+  const calendarIcon = getElementById('calendar-icon'); // Although not used directly in listeners, good practice
+  const calendarPopup = getElementById('calendar-popup');
+  const calendarViews = getElementById('calendar-views');
+  const dateView = getElementById('date-view');
+  const monthView = getElementById('month-view');
+  const yearView = getElementById('year-view');
 
   // Date View Elements
-  const headerMonth = document.getElementById('header-month');
-  const headerYear = document.getElementById('header-year');
-  const dateGridCells = document.getElementById('date-grid-cells');
+  const headerMonth = getElementById('header-month');
+  const headerYear = getElementById('header-year');
+  const dateGridCells = getElementById('date-grid-cells');
 
   // Month View Elements
-  const monthViewYear = document.getElementById('month-view-year');
-  const monthGridCells = document.getElementById('month-grid-cells');
+  const monthViewYear = getElementById('month-view-year');
+  const monthGridCells = getElementById('month-grid-cells');
 
   // Year View Elements
-  const yearViewDecade = document.getElementById('year-view-decade');
-  const yearGridCells = document.getElementById('year-grid-cells');
+  const yearViewDecade = getElementById('year-view-decade');
+  const yearGridCells = getElementById('year-grid-cells');
 
-  // Navigation Buttons (using querySelectorAll for flexibility)
-  const prevButtons = document.querySelectorAll('.prev-btn');
-  const nextButtons = document.querySelectorAll('.next-btn');
+  // Navigation Buttons
+  const prevButtons = getAllElements('.prev-btn');
+  const nextButtons = getAllElements('.next-btn');
 
-  // --- Locale Data (English based on image) ---
+  // --- Locale Data ---
   const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-  // --- Helper Functions (MOVED UP) ---
+  // --- Helper Functions ---
   const formatDate = (date) => {
-      if (!date) return '';
-      const day = String(date.getDate()).padStart(2, '0');
-      const month = String(date.getMonth() + 1).padStart(2, '0');
-      const year = date.getFullYear();
-      return `${day}.${month}.${year}`;
+      if (!date || !(date instanceof Date)) return ''; // Added check for valid Date object
+      try {
+          const day = String(date.getDate()).padStart(2, '0');
+          const month = String(date.getMonth() + 1).padStart(2, '0');
+          const year = date.getFullYear();
+          return `${day}.${month}.${year}`;
+      } catch (e) {
+          console.error("Error formatting date:", date, e);
+          return ''; // Return empty string on error
+      }
   };
 
   const parseDate = (dateString) => {
+      if (!dateString || typeof dateString !== 'string') {
+          // Handle null, undefined, or non-string input
+           console.warn("Invalid input to parseDate:", dateString, "- Falling back to today.");
+           const today = new Date();
+           today.setHours(0,0,0,0);
+           return today;
+      }
       const parts = dateString.match(/^(\d{2})\.(\d{2})\.(\d{4})$/);
       if (parts) {
-          // parts[1] = day, parts[2] = month, parts[3] = year
           const year = parseInt(parts[3], 10);
           const month = parseInt(parts[2], 10) - 1; // Month is 0-indexed
           const day = parseInt(parts[1], 10);
-           // Basic validation
           if (year > 0 && month >= 0 && month <= 11 && day > 0 && day <= 31) {
-               // Further validation for days in month could be added here
                const date = new Date(year, month, day);
-               // Check if the date object is valid (e.g., not Feb 30th)
-               if (date.getFullYear() === year && date.getMonth() === month && date.getDate() === day) {
+               // Check if the date object is valid and matches the input parts
+               if (date && date.getFullYear() === year && date.getMonth() === month && date.getDate() === day) {
+                  date.setHours(0, 0, 0, 0); // Normalize
                   return date;
                }
           }
       }
-      console.warn("Could not parse date:", dateString, "Falling back to today.");
+      console.warn("Could not parse date string:", dateString, "- Falling back to today.");
       const today = new Date();
       today.setHours(0,0,0,0);
       return today; // Fallback
   };
 
-  // --- State (Defined AFTER helpers) ---
-  let currentView = 'date'; // 'date', 'month', 'year'
-  let currentDate = parseDate(selectedDateInput.value) || new Date(); // NOW parseDate is defined
+  // --- State ---
+  // Use optional chaining (?.) when accessing properties of potentially null elements
+  let initialDateValue = selectedDateInput?.value || '';
+  let currentDate = parseDate(initialDateValue); // parseDate now handles empty/invalid string
   currentDate.setHours(0, 0, 0, 0); // Normalize selected date
 
   let displayYear = currentDate.getFullYear();
   let displayMonth = currentDate.getMonth(); // 0-11
-  let displayDecadeStart; // For year view
-
+  let displayDecadeStart;
 
   // --- View Switching ---
   const switchView = (view) => {
       currentView = view;
-      // Hide all views
-      calendarViews.querySelectorAll('.calendar-view').forEach(v => v.classList.remove('active-view'));
+      if (!calendarViews) return; // Exit if the main container is missing
+
+      // Hide all views (only if calendarViews exists)
+      calendarViews.querySelectorAll('.calendar-view').forEach(v => v?.classList.remove('active-view'));
+
       // Show the target view
-      const targetView = document.getElementById(`${view}-view`);
+      const targetView = getElementById(`${view}-view`);
       if (targetView) {
           targetView.classList.add('active-view');
-          // Render the content for the new view
+          // Render the content for the new view (updateCalendar checks its own elements)
           updateCalendar();
       } else {
           console.error("Target view not found:", view);
@@ -1096,32 +1114,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Render Date Grid
   const renderDateGrid = () => {
-      dateGridCells.innerHTML = '';
+      // Guard clause: Exit if essential elements are missing
+      if (!dateGridCells || !headerMonth || !headerYear) {
+          console.warn("Cannot render Date Grid: Missing required elements (dateGridCells, headerMonth, or headerYear).");
+          return;
+      }
+
+      dateGridCells.innerHTML = ''; // Safe now due to guard clause
       headerMonth.textContent = monthNames[displayMonth];
       headerYear.textContent = displayYear;
 
       const firstDayOfMonth = new Date(displayYear, displayMonth, 1);
       const daysInMonth = new Date(displayYear, displayMonth + 1, 0).getDate();
-
-      // Adjust start day: 0=Sun, 1=Mon, ..., 6=Sat. We want 0=Mon, ..., 6=Sun
-      let startDayIndex = firstDayOfMonth.getDay(); // 0 for Sunday
-      startDayIndex = startDayIndex === 0 ? 6 : startDayIndex - 1; // Make Monday 0, Sunday 6
-
+      let startDayIndex = firstDayOfMonth.getDay();
+      startDayIndex = startDayIndex === 0 ? 6 : startDayIndex - 1;
       const daysInPrevMonth = new Date(displayYear, displayMonth, 0).getDate();
 
-      // Days from previous month
+      // Previous month's days
       for (let i = startDayIndex - 1; i >= 0; i--) {
           const day = daysInPrevMonth - i;
           const cell = document.createElement('div');
           cell.classList.add('day-cell', 'other-month');
           cell.textContent = day;
-          dateGridCells.appendChild(cell);
+          dateGridCells.appendChild(cell); // Safe
       }
 
-      // Days for the current month
+      // Current month's days
       const today = new Date();
       today.setHours(0, 0, 0, 0);
-
       for (let day = 1; day <= daysInMonth; day++) {
           const cell = document.createElement('div');
           cell.classList.add('day-cell');
@@ -1129,90 +1149,84 @@ document.addEventListener('DOMContentLoaded', () => {
           const cellDate = new Date(displayYear, displayMonth, day);
           cellDate.setHours(0, 0, 0, 0);
 
-          if (cellDate.getTime() === today.getTime()) {
-              cell.classList.add('today');
-          }
-          if (currentDate && cellDate.getTime() === currentDate.getTime()) {
-              cell.classList.add('selected');
-          }
+          if (cellDate.getTime() === today.getTime()) cell.classList.add('today');
+          // Use optional chaining for currentDate in case it's somehow null (though parseDate provides fallback)
+          if (currentDate && cellDate.getTime() === currentDate.getTime()) cell.classList.add('selected');
 
           cell.addEventListener('click', () => handleDateClick(cellDate));
-          dateGridCells.appendChild(cell);
+          dateGridCells.appendChild(cell); // Safe
       }
 
-      // Days from next month
+      // Next month's days
       const totalCells = startDayIndex + daysInMonth;
       const remainingCells = (totalCells % 7 === 0) ? 0 : 7 - (totalCells % 7);
-
       for (let i = 1; i <= remainingCells; i++) {
           const cell = document.createElement('div');
           cell.classList.add('day-cell', 'other-month');
           cell.textContent = i;
-          dateGridCells.appendChild(cell);
+          dateGridCells.appendChild(cell); // Safe
       }
   };
 
   // Render Month Grid
   const renderMonthGrid = () => {
-      monthGridCells.innerHTML = '';
-      monthViewYear.textContent = displayYear; // Update year display in month view header
+      // Guard clause
+      if (!monthGridCells || !monthViewYear) {
+          console.warn("Cannot render Month Grid: Missing required elements (monthGridCells or monthViewYear).");
+          return;
+      }
+
+      monthGridCells.innerHTML = ''; // Safe
+      monthViewYear.textContent = displayYear; // Safe
+
       monthNames.forEach((name, index) => {
           const cell = document.createElement('div');
           cell.classList.add('month-cell');
           cell.textContent = name;
 
-           // Highlight the currently displayed month
-           if (index === displayMonth) {
-               cell.classList.add('selected');
-           }
-           // Ensure the *actually* selected month/year combination is also highlighted
+           if (index === displayMonth) cell.classList.add('selected');
            if (currentDate && index === currentDate.getMonth() && displayYear === currentDate.getFullYear()) {
-              // Override if this IS the selected one
               cell.classList.add('selected');
            }
 
           cell.addEventListener('click', () => handleMonthClick(index));
-          monthGridCells.appendChild(cell);
+          monthGridCells.appendChild(cell); // Safe
       });
   };
 
   // Render Year Grid
   const renderYearGrid = () => {
-      yearGridCells.innerHTML = '';
-      // Calculate decade start (e.g., 2023 -> 2020)
+      // Guard clause
+      if (!yearGridCells || !yearViewDecade) {
+           console.warn("Cannot render Year Grid: Missing required elements (yearGridCells or yearViewDecade).");
+           return;
+      }
+
+      yearGridCells.innerHTML = ''; // Safe
       displayDecadeStart = Math.floor(displayYear / 10) * 10;
       const decadeEnd = displayDecadeStart + 9;
-      yearViewDecade.textContent = `${displayDecadeStart}-${decadeEnd}`; // Update decade display
+      yearViewDecade.textContent = `${displayDecadeStart}-${decadeEnd}`; // Safe
 
-      const yearGridStart = displayDecadeStart - 1; // Show one year before
-      const yearGridEnd = displayDecadeStart + 10; // Show one year after (total 12 years)
+      const yearGridStart = displayDecadeStart - 1;
+      const yearGridEnd = displayDecadeStart + 10;
 
       for (let year = yearGridStart; year <= yearGridEnd; year++) {
           const cell = document.createElement('div');
           cell.classList.add('year-cell');
           cell.textContent = year;
 
-          if (year < displayDecadeStart || year > decadeEnd) {
-              cell.classList.add('other-decade');
-          }
-
-          // Highlight the currently displayed year
-           if (year === displayYear) {
-              cell.classList.add('selected');
-           }
-          // Ensure the *actually* selected year is also highlighted
-          if (currentDate && year === currentDate.getFullYear()) {
-               cell.classList.add('selected'); // Ensure the actual selected year is blue
-          }
-
+          if (year < displayDecadeStart || year > decadeEnd) cell.classList.add('other-decade');
+          if (year === displayYear) cell.classList.add('selected');
+          if (currentDate && year === currentDate.getFullYear()) cell.classList.add('selected');
 
           cell.addEventListener('click', () => handleYearClick(year));
-          yearGridCells.appendChild(cell);
+          yearGridCells.appendChild(cell); // Safe
       }
   };
 
   // Update Calendar based on current view
   const updateCalendar = () => {
+      // The render functions themselves now contain checks for their required elements
       switch (currentView) {
           case 'date':
               renderDateGrid();
@@ -1230,31 +1244,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const handleDateClick = (date) => {
       currentDate = date; // Update the actual selected date
-      selectedDateInput.value = formatDate(date);
-      displayYear = date.getFullYear(); // Sync display year/month
+      // Only update input if it exists
+      if (selectedDateInput) {
+          selectedDateInput.value = formatDate(date);
+      }
+      displayYear = date.getFullYear();
       displayMonth = date.getMonth();
-      toggleCalendar(false); // Close popup
-      // No need to re-render immediately as it's closing
+      toggleCalendar(false); // Close popup (toggleCalendar checks for popup existence)
   };
 
   const handleMonthClick = (monthIndex) => {
       displayMonth = monthIndex;
-      // Don't change currentDate here, only the displayed month/year
-      switchView('date'); // Switch back to date view
+      switchView('date'); // switchView handles missing elements
   };
 
   const handleYearClick = (year) => {
       displayYear = year;
-      // Don't change currentDate here
-      switchView('month'); // Switch to month view after selecting year
+      switchView('month'); // switchView handles missing elements
   };
 
   const toggleCalendar = (forceShow = null) => {
+      // Exit if the popup element doesn't exist
+      if (!calendarPopup) {
+          console.warn("Cannot toggle calendar: calendarPopup element not found.");
+          return;
+      }
+
       const isActive = calendarPopup.classList.contains('active');
       if (forceShow === true || (forceShow === null && !isActive)) {
-          displayYear = currentDate.getFullYear();
-          displayMonth = currentDate.getMonth();
-          switchView('date'); 
+          // Ensure currentDate is valid before accessing properties
+          if (currentDate && typeof currentDate.getFullYear === 'function') {
+             displayYear = currentDate.getFullYear();
+             displayMonth = currentDate.getMonth();
+          } else {
+             // Fallback if currentDate is somehow invalid (shouldn't happen with parseDate)
+             const now = new Date();
+             displayYear = now.getFullYear();
+             displayMonth = now.getMonth();
+             console.warn("toggleCalendar: Invalid currentDate state, falling back to current month/year.");
+          }
+          switchView('date'); // Render the default view
           calendarPopup.classList.add('active');
 
       } else if (forceShow === false || (forceShow === null && isActive)) {
@@ -1262,79 +1291,156 @@ document.addEventListener('DOMContentLoaded', () => {
       }
   };
 
+  // --- Event Listener Setup ---
+
   // Input/Icon Click
-  dateInputContainer.addEventListener('click', (event) => {
-      event.stopPropagation();
-      toggleCalendar();
-  });
+  if (dateInputContainer) {
+      dateInputContainer.addEventListener('click', (event) => {
+          event.stopPropagation();
+          toggleCalendar(); // toggleCalendar has its own check
+      });
+  } else {
+      console.warn("Date input container not found. Calendar toggle via input click disabled.");
+  }
+
 
   // Header Controls Click
-  headerMonth.addEventListener('click', (event) => {
-      event.stopPropagation();
-      if (currentView === 'date') {
-          switchView('month');
-      }
-  });
-  headerYear.addEventListener('click', (event) => {
-      event.stopPropagation();
-      if (currentView === 'date' || currentView === 'month') {
-          switchView('year');
-      }
-  });
-  // Click listener for the year display in the month view header
-  monthViewYear.addEventListener('click', (event) => {
-      event.stopPropagation();
-      if (currentView === 'month') {
-           switchView('year');
-      }
-  });
+  if (headerMonth) {
+      headerMonth.addEventListener('click', (event) => {
+          event.stopPropagation();
+          if (currentView === 'date') {
+              switchView('month'); // switchView has checks
+          }
+      });
+  }
+   if (headerYear) {
+       headerYear.addEventListener('click', (event) => {
+           event.stopPropagation();
+           if (currentView === 'date' || currentView === 'month') {
+               switchView('year'); // switchView has checks
+           }
+       });
+   }
+  if (monthViewYear) {
+      monthViewYear.addEventListener('click', (event) => {
+          event.stopPropagation();
+          if (currentView === 'month') {
+               switchView('year'); // switchView has checks
+          }
+      });
+  }
 
-
+  // Navigation Buttons
   const handleNav = (direction) => {
+      // No DOM elements needed here, just state manipulation
       switch (currentView) {
           case 'date':
               if (direction === 'prev') {
                   displayMonth--;
-                  if (displayMonth < 0) {
-                      displayMonth = 11;
-                      displayYear--;
-                  }
+                  if (displayMonth < 0) { displayMonth = 11; displayYear--; }
               } else {
                   displayMonth++;
-                  if (displayMonth > 11) {
-                      displayMonth = 0;
-                      displayYear++;
-                  }
+                  if (displayMonth > 11) { displayMonth = 0; displayYear++; }
               }
               break;
           case 'month':
               displayYear += (direction === 'prev' ? -1 : 1);
               break;
           case 'year':
-              // Navigate by decade (adjusting displayYear to be within the new decade)
               const decadeJump = direction === 'prev' ? -10 : 10;
-              // displayDecadeStart += decadeJump; // displayDecadeStart is calculated in renderYearGrid
-              displayYear += decadeJump; // Move display year by a decade
+              displayYear += decadeJump;
               break;
       }
-      updateCalendar(); // Re-render the current view
+      updateCalendar(); // updateCalendar calls render functions which have checks
   };
 
-  prevButtons.forEach(btn => btn.addEventListener('click', (e) => { e.stopPropagation(); handleNav('prev'); }));
-  nextButtons.forEach(btn => btn.addEventListener('click', (e) => { e.stopPropagation(); handleNav('next'); }));
+  // Add listeners only if buttons exist
+  if (prevButtons.length > 0) {
+      prevButtons.forEach(btn => btn.addEventListener('click', (e) => { e.stopPropagation(); handleNav('prev'); }));
+  } else {
+       console.warn("Previous navigation buttons not found.");
+  }
+  if (nextButtons.length > 0) {
+       nextButtons.forEach(btn => btn.addEventListener('click', (e) => { e.stopPropagation(); handleNav('next'); }));
+  } else {
+      console.warn("Next navigation buttons not found.");
+  }
 
-
+  // Click outside to close
   document.addEventListener('click', (event) => {
+      // Check if core elements exist before proceeding
+      if (!calendarPopup || !dateInputContainer) return;
+
+      // Use optional chaining for safety, although we checked above
+      const isPopupActive = calendarPopup.classList.contains('active');
+
       // Check if the click is outside the popup AND outside the input container
-      if (!calendarPopup.contains(event.target) && !dateInputContainer.contains(event.target)) {
-         if (calendarPopup.classList.contains('active')) {
-             toggleCalendar(false);
-         }
+      if (isPopupActive &&
+          !calendarPopup.contains(event.target) &&
+          !dateInputContainer.contains(event.target))
+      {
+           toggleCalendar(false); // toggleCalendar is guarded
       }
   });
 
+  // --- Initialization ---
+  // Set initial input value only if input exists
+  if (selectedDateInput) {
+      selectedDateInput.value = formatDate(currentDate);
+  }
 
-  selectedDateInput.value = formatDate(currentDate); // Ensure input matches parsed date
+  // Initial render (optional, only if you want it open by default)
+  // If you want the calendar closed initially, remove or comment out the next line
+  // updateCalendar(); // Render based on initial state (render functions have checks)
+
+});
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const tabContainers = document.querySelectorAll('.tabs-container175');
+
+  tabContainers.forEach(container => {
+    const tabButtons = container.querySelectorAll('.tab-button175');
+    const tabContents = container.querySelectorAll('.tab-content175'); // <- ИСПРАВЛЕНО
+    const tabButtonContainer = container.querySelector('.tab-buttons175');
+
+    if (!tabButtonContainer) {
+      console.error('Контейнер кнопок .tab-buttons175 не найден в одном из наборов!');
+      return;
+    }
+
+    tabButtonContainer.addEventListener('click', (event) => {
+      const clickedButton = event.target.closest('.tab-button175');
+      if (!clickedButton) return;
+
+      const tabId = clickedButton.dataset.tab;
+
+      // Убираем активные классы
+      tabButtons.forEach(button => button.classList.remove('active175'));
+      tabContents.forEach(content => content.classList.remove('active175')); // <- ИСПРАВЛЕНО
+
+      // Добавляем активный класс
+      clickedButton.classList.add('active175');
+      const activeContent = container.querySelector(`#${tabId}`);
+      if (activeContent) {
+        activeContent.classList.add('active175');
+      } else {
+        console.warn(`Контент с ID "${tabId}" не найден в текущем контейнере.`);
+      }
+    });
+  });
 });
