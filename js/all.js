@@ -1444,3 +1444,52 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+
+
+
+
+
+
+
+
+
+  function startTimers() {
+    const timers = document.querySelectorAll('.timer');
+
+    timers.forEach(timer => {
+      const endTimeStr = timer.getAttribute('data-time');
+      const endTime = new Date(endTimeStr);
+
+      const daysEl = timer.querySelector('.days');
+      const hoursEl = timer.querySelector('.hours');
+      const minutesEl = timer.querySelector('.minutes');
+      const secondsEl = timer.querySelector('.seconds');
+
+      const interval = setInterval(() => {
+        const now = new Date();
+        const diff = endTime - now;
+
+        if (diff <= 0) {
+          clearInterval(interval);
+          const comingSoon = document.createElement('div');
+          comingSoon.className = 'timer timer-back';
+          comingSoon.textContent = 'COMING SOON!';
+          timer.replaceWith(comingSoon);
+          return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        daysEl.textContent = String(days).padStart(2, '0');
+        hoursEl.textContent = String(hours).padStart(2, '0');
+        minutesEl.textContent = String(minutes).padStart(2, '0');
+        secondsEl.textContent = String(seconds).padStart(2, '0');
+      }, 1000);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', startTimers);

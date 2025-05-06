@@ -5876,3 +5876,93 @@ to { opacity: 1; }
 
 
 /* виджет бигвин */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* timer */
+
+
+.timer {
+  display: flex;
+  justify-content: center;
+}
+
+.timer div:not(:last-child) {
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  margin-right: 10px;
+  padding-right: 10px;
+ 
+}
+
+.timer div > :last-child {
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: #999;
+}
+
+.timer div > :first-child {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 179%;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--white);
+}
+
+.timer-2 {
+  justify-content: flex-start;
+}
+
+
+.description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+.timer-back {
+  margin-bottom: 20px!important;
+}
+
+.timer-back div > :first-child {
+  font-size: 20px;
+}
+
+.timer-back div > :last-child {
+  font-size: 14px;
+}
+
+.timer-back-2 {
+  font-size: 20px;
+  margin: 30px 0;
+}
+
+.game-card .back {
+  padding: 20px;
+}
+
+
+
+
+
+/* timer */
