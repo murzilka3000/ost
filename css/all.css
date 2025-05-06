@@ -5959,7 +5959,29 @@ to { opacity: 1; }
   padding: 20px;
 }
 
+.timer-single div > :first-child {
+  font-size: 54px;
+  line-height: 100%;
+  margin-bottom: 13px;
+}
 
+.timer-single div > :last-child {
+  font-size: 18px;
+}
+
+.timer-single-2 {
+  color: #fff;
+  font-size: 30px;
+  margin: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  .timer-single div > :first-child {
+    font-size: 44px;
+    line-height: 100%;
+    margin-bottom: 13px;
+  }
+}
 
 
 
