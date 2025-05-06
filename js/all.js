@@ -1454,42 +1454,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  function startTimers() {
-    const timers = document.querySelectorAll('.timer');
+function startTimers() {
+  const timers = document.querySelectorAll('.timer');
 
-    timers.forEach(timer => {
-      const endTimeStr = timer.getAttribute('data-time');
-      const endTime = new Date(endTimeStr);
+  timers.forEach(timer => {
+    let endTimeStr = timer.getAttribute('data-time');
+    const secondsOffset = timer.getAttribute('data-seconds');
+    const finishClass = timer.getAttribute('data-finish-class') || 'timer timer-2';
+    const finishText = timer.getAttribute('data-finish-text') || 'COMING SOON!';
 
-      const daysEl = timer.querySelector('.days');
-      const hoursEl = timer.querySelector('.hours');
-      const minutesEl = timer.querySelector('.minutes');
-      const secondsEl = timer.querySelector('.seconds');
+    let endTime;
 
-      const interval = setInterval(() => {
-        const now = new Date();
-        const diff = endTime - now;
+    if (secondsOffset) {
+      endTime = new Date(Date.now() + parseInt(secondsOffset) * 1000);
+    } else if (endTimeStr) {
+      endTime = new Date(endTimeStr);
+    } else {
+      return;
+    }
 
-        if (diff <= 0) {
-          clearInterval(interval);
-          const comingSoon = document.createElement('div');
-          comingSoon.className = 'timer timer-back';
-          comingSoon.textContent = 'COMING SOON!';
-          timer.replaceWith(comingSoon);
-          return;
-        }
+    const daysEl = timer.querySelector('.days');
+    const hoursEl = timer.querySelector('.hours');
+    const minutesEl = timer.querySelector('.minutes');
+    const secondsEl = timer.querySelector('.seconds');
 
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((diff / (1000 * 60)) % 60);
-        const seconds = Math.floor((diff / 1000) % 60);
+    const interval = setInterval(() => {
+      const now = new Date();
+      const diff = endTime - now;
 
-        daysEl.textContent = String(days).padStart(2, '0');
-        hoursEl.textContent = String(hours).padStart(2, '0');
-        minutesEl.textContent = String(minutes).padStart(2, '0');
-        secondsEl.textContent = String(seconds).padStart(2, '0');
-      }, 1000);
-    });
-  }
+      if (diff <= 0) {
+        clearInterval(interval);
+        const comingSoon = document.createElement('div');
+        comingSoon.className = finishClass;
+        comingSoon.textContent = finishText;
+        timer.replaceWith(comingSoon);
+        return;
+      }
 
-  document.addEventListener('DOMContentLoaded', startTimers);
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      daysEl.textContent = String(days).padStart(2, '0');
+      hoursEl.textContent = String(hours).padStart(2, '0');
+      minutesEl.textContent = String(minutes).padStart(2, '0');
+      secondsEl.textContent = String(seconds).padStart(2, '0');
+    }, 1000);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', startTimers);
